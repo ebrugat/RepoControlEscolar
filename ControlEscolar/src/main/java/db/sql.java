@@ -9,5 +9,5 @@ package db;
  * @author Mati
  */
 public class sql {
-    
+    /*Conexión a la bd en sql???*/
 }
