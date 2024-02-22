@@ -8,6 +8,6 @@ package db;
  *
  * @author Mati
  */
-public class sql {
+public class Sql {
     /*Conexión a la bd en sql???*/
 }
