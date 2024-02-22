@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
+import model.Carrera;
 /**
  *
  * @author Mati
@@ -21,6 +22,9 @@ public class Sql {
     public static final String USER = "root";
     public static final String PASSWORD = "123456";
     public static String BD_URL;
+    
+    private Carrera car;
+    private Connection conexion;
     
     public static void loadDriver() throws ClassNotFoundException {
         //getConnectionProperties(); better if connection properties are read from a configuration file
