@@ -9,14 +9,9 @@ package model;
  * @author Mati
  */
 public class Carrera {
-    String nombre;
-    int id;
-    
-    Carrera(){}
-    Carrera(int idp, String nombrep){
-        setId(idp);
-        setNombre(nombrep);
-    }
+String nombre;
+int id;
+
     public String getNombre() {
         return nombre;
     }
