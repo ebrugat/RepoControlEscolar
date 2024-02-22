@@ -8,6 +8,6 @@ package model;
  *
  * @author Mati
  */
-public class javabeans {
-    /* Funcionalidad de la gestión?? */
+public class Carrera {
+    /* */
 }
