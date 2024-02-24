@@ -9,13 +9,18 @@ package model;
  * @author Mati
  */
 public class Carrera {
-    String nombre;
+    private static final String TABLE_NAME = "carreras";
+    private String nombre;
+    private String table; 
     int id;
     
-    Carrera(){}
-    Carrera(int idp, String nombrep){
+    public Carrera(){
+        setTable(TABLE_NAME);
+    }
+    public Carrera(int idp, String nombrep){
         setId(idp);
         setNombre(nombrep);
+        setTable(TABLE_NAME);
     }
     public String getNombre() {
         return nombre;
@@ -31,5 +36,13 @@ public class Carrera {
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public String getTable(){
+        return table;
+    }
+    
+    public void setTable(String table){
+        this.table = table;
     }
 }

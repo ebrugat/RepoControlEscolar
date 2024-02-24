@@ -7,7 +7,6 @@ package db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
 import model.Carrera;
 /**
@@ -15,33 +14,56 @@ import model.Carrera;
  * @author Mati
  */
 public class Sql {
-    public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String PROTOCOL = "jdbc:mysql:";
-    public static final String HOST = "127.0.0.1";
-    public static final String BD_NAME = "bd_institucion";
-    public static final String USER = "root";
-    public static final String PASSWORD = "123456";
-    public static String BD_URL;
     
     private Carrera car;
     private Connection conexion;
-    
-    public static void loadDriver() throws ClassNotFoundException {
-        //getConnectionProperties(); better if connection properties are read from a configuration file
-        Class.forName(DRIVER);
-        BD_URL = String.format("%s//%s/%s", PROTOCOL, HOST, BD_NAME);
+
+    public Sql(){}
+    public Sql(Carrera car, Connection conexion) {
+        setCar(car);
+        setConexion(conexion);
     }
-    
-    /**
-     * gets and returns a connection to database
-     *
-     * @return connection
-     * @throws java.sql.SQLException
-     */
-    public Connection getConnection() throws SQLException {
-        BD_URL = String.format("%s//%s/%s", PROTOCOL, HOST, BD_NAME);
-        Connection conn;
-        conn = DriverManager.getConnection(BD_URL, USER, PASSWORD);
-        return conn;
+ 
+    public static void deleteData(String table, int id, Connection con){
+        try {
+            String SQLQuery = "DELETE FROM " + table + " WHERE id = ?";
+            PreparedStatement pt = con.prepareStatement(SQLQuery);
+            pt.setInt(1, id);
+            int filasAfectadas = pt.executeUpdate();
+            System.out.println("Insertado, columnas eliminada: " + filasAfectadas);
+            pt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+  /*public static void updateData(String nombreAntiguo, String nombreNuevo) {       
+        
+       try {
+            String query = "UPDATE " + table + " SET nombreAntiguo = ? WHERE id = ?";
+            // Prepare the SQL statement
+            PreparedStatement pt = con.prepareStatement(query);
+            pt.setInt(1, id);
+            pt.setString(2, nombreNuevo);
+            pt.executeUpdate();
+            System.out.println("Datos actualizados correctamente3.");
+            pt.close();
+        } catch (SQLException e) {
+            System.err.println("Error actualizando los datos: " + e.getMessage());
+        }
+    }*/
+    public Carrera getCar() {
+        return car;
+    }
+
+    public void setCar(Carrera car) {
+        this.car = car;
+    }
+
+    public Connection getCon(){
+        return conexion;
+    }
+            
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
     }
 }
