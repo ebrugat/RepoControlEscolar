@@ -28,7 +28,6 @@ public class Main {
         controlEscolar.deleteData(car.getTable(), 1, con);
         }catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
-        
-    }*/
+        }*/   
+    }
 }

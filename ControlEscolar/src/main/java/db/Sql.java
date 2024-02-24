@@ -36,21 +36,19 @@ public class Sql {
             e.printStackTrace();
         }
     }
-  /*public static void updateData(String nombreAntiguo, String nombreNuevo) {       
+  public static void updateData(String table, String nombreAntiguo, String nombreNuevo, Connection con) {       
         
        try {
-            String query = "UPDATE " + table + " SET nombreAntiguo = ? WHERE id = ?";
-            // Prepare the SQL statement
+            String query = "UPDATE " + table + " SET nombre = ? WHERE nombre LIKE " + nombreAntiguo;
             PreparedStatement pt = con.prepareStatement(query);
-            pt.setInt(1, id);
-            pt.setString(2, nombreNuevo);
+            pt.setString(1, nombreNuevo);
             pt.executeUpdate();
             System.out.println("Datos actualizados correctamente3.");
             pt.close();
         } catch (SQLException e) {
             System.err.println("Error actualizando los datos: " + e.getMessage());
         }
-    }*/
+    }
     public Carrera getCar() {
         return car;
     }
