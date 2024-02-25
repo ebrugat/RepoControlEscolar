@@ -5,7 +5,6 @@
 package db;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import model.Carrera;
@@ -29,11 +28,11 @@ public class Sql {
             String SQLQuery = "DELETE FROM " + table + " WHERE id = ?";
             PreparedStatement pt = con.prepareStatement(SQLQuery);
             pt.setInt(1, id);
-            int filasAfectadas = pt.executeUpdate();
-            System.out.println("Insertado, columnas eliminada: " + filasAfectadas);
+            pt.executeUpdate();
+            System.out.println("Se ha eliminado la fila correctamente");
             pt.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error borrando los datos seleccionados: " + e.getMessage());
         }
     }
     public static void updateData(String table, String columna, String nombreAntiguo, String nombreNuevo, Connection con) {

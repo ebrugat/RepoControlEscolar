@@ -3,9 +3,7 @@ import db.*;
 import model.Carrera;
 import java.util.Scanner;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,7 +23,7 @@ public class Main {
         DbConnect dbConnect = new DbConnect();
         Connection con = dbConnect.getConexion();
         Sql controlEscolar = new Sql(car, con);
-        controlEscolar.updateData(car.getTable(), car.getColumna1(), "cientifico", "fisica", con);
+        controlEscolar.deleteData(car.getTable(), NULL, con);
         }catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }   
