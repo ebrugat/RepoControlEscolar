@@ -18,16 +18,16 @@ import java.sql.PreparedStatement;
 public class Main {
 
     public static void main(String[] args) {
-        /*try{
+        try{
         Scanner in = new Scanner(System.in);
         Carrera car = new Carrera();
         DbConnect.loadDriver();
         DbConnect dbConnect = new DbConnect();
         Connection con = dbConnect.getConexion();
         Sql controlEscolar = new Sql(car, con);
-        controlEscolar.deleteData(car.getTable(), 1, con);
+        controlEscolar.updateData(car.getTable(), car.getColumna1(), "cientifico", "fisica", con);
         }catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }*/   
+        }   
     }
 }
