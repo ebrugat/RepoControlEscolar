@@ -16,16 +16,58 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args) {
-        try{
         Scanner in = new Scanner(System.in);
-        Carrera car = new Carrera();
-        DbConnect.loadDriver();
-        DbConnect dbConnect = new DbConnect();
-        Connection con = dbConnect.getConexion();
-        Sql controlEscolar = new Sql(car, con);
-        controlEscolar.deleteData(car.getTable(), NULL, con);
-        }catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }   
+        int inUsuario, nextIntInput;
+        String nextInput1,nextInput2; //1 y 2 para el caso particular en el que deseemos actualizar datos de una columna específica, necesitaremos ingresar el valor que deseamos actualizar y el valor que queremos
+        do{
+            System.out.printf("1.Insertar datos en la base de datos\n2.Leer datos de la base de datos\n3.Actualizar datos de la base de datos\n4.Borrar datos de la base de datos\n0.Salir\n");
+            inUsuario = in.nextInt();
+            switch(inUsuario){
+                case 1:
+                    /*try{
+                        DbConnect.loadDriver();
+                        DbConnect dbConnect = new DbConnect();
+                        Connection con = dbConnect.getConexion();
+                        Carrera car = new Carrera();
+                        Sql controlEscolar = new Sql(car, con);
+                        //Aquí sería preciso pedir al usuario a qué tabla acceder, como solo tenemos 1 aun no lo hacemos. También cabe destacar que, para tablas que tengan más de una columna hay que preguntarle al usuario qué columnas quiere modificar (en este caso solo hay nombre)
+                        System.out.println("Ingrese el nombre de la carrera que desea ingresar");
+                        nextInput = in.nextline();
+                        //controlEscolar.insertData(nextInput,car.getTable(),car.getColumna1(),con);
+                        con.close();
+                    }catch (ClassNotFoundException | SQLException e) {
+                        e.printStackTrace();
+                    }*/
+                    break;
+                case 2:
+                    /*try{
+                        DbConnect.loadDriver();
+                        DbConnect dbConnect = new DbConnect();
+                        Connection con = dbConnect.getConexion();
+                        Carrera car = new Carrera();
+                        Sql controlEscolar = new Sql(car, con);
+                        controlEscolar.showData(car.getTable(),con);
+                        con.close();
+                    }catch (ClassNotFoundException | SQLException e) {
+                        e.printStackTrace();
+                    }*/
+                    break;
+                case 3:
+                    try{
+                        DbConnect.loadDriver();
+                        DbConnect dbConnect = new DbConnect();
+                        Connection con = dbConnect.getConexion();
+                        Carrera car = new Carrera();
+                        Sql controlEscolar = new Sql(car, con);
+                        System.out.println("Ingrese el nombre de la carrera que quiere actualizar y la nueva en ese orden");
+                        nextInput1 = in.nextLine();
+                        nextInput2 = in.nextLine();
+                        controlEscolar.updateData(car.getTable(), car.getColumna1(),nextInput1,nextInput2,con);
+                        con.close();
+                    }catch (ClassNotFoundException | SQLException e) {
+                        e.printStackTrace();
+                    }
+            }
+        }while(inUsuario!=0);  
     }
 }
