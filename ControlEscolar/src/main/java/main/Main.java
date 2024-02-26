@@ -22,6 +22,7 @@ public class Main {
         do{
             System.out.printf("1.Insertar datos en la base de datos\n2.Leer datos de la base de datos\n3.Actualizar datos de la base de datos\n4.Borrar datos de la base de datos\n0.Salir\n");
             inUsuario = in.nextInt();
+            in.nextLine();
             switch(inUsuario){
                 case 1:
                     /*try{
@@ -60,7 +61,6 @@ public class Main {
                         Carrera car = new Carrera();
                         Sql controlEscolar = new Sql(car, con);
                         System.out.println("Ingrese el nombre de la carrera que quiere actualizar y la nueva en ese orden");
-                        in.nextLine();
                         nextInput1 = in.nextLine();
                         nextInput2 = in.nextLine();
                         controlEscolar.updateData(car.getTable(), car.getColumna1(),nextInput1,nextInput2,con);
