@@ -23,7 +23,12 @@ public class Main {
         DbConnect dbConnect = new DbConnect();
         Connection con = dbConnect.getConexion();
         Sql controlEscolar = new Sql(car, con);
-        controlEscolar.deleteData(car.getTable(), NULL, con);
+        controlEscolar.deleteData(car.getTable(), 1, con);
+        controlEscolar.readData()
+
+
+
+
         }catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }   
