@@ -27,8 +27,6 @@ public class Sql {
         setConexion(conexion);
     }
 
-    public Sql(model.Carrera car, Connection con) {
-    }
 
 
     public void insertData(Connection con, String table, String columna, String inputCarrera) {

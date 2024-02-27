@@ -4,3 +4,6 @@ FUNCIONALIDAD "Sql" class:
 -READ (VER CONTENIDO) --- Andrés
 -DELETE --- Enric
 -UPDATE --- Enric
+
+çç
+

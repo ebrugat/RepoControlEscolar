@@ -8,12 +8,13 @@ package model;
  *
  * @author Mati
  */
-public class Carrera {
+
+public class Carrera{
     private static final String TABLE_NAME = "carreras";
     private static final String COLUMN_NAME_1 = "nombre";
+    
+    
     private String table;
-
-
     private String columna1;
     private String nombre;
     int id;

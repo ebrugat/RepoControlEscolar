@@ -16,6 +16,7 @@ public final class DbConnect {
     public static final String USER = "root";
     public static final String PASSWORD = "123456";
     public static String BD_URL;
+    private Connection conexion;
     
     public static void loadDriver() throws ClassNotFoundException {
         //getConnectionProperties(); better if connection properties are read from a configuration file
@@ -31,8 +32,10 @@ public final class DbConnect {
      */
     public Connection getConexion() throws SQLException {
         BD_URL = String.format("%s//%s/%s", PROTOCOL, HOST, BD_NAME);
-        Connection conexion;
         conexion = DriverManager.getConnection(BD_URL, USER, PASSWORD);
         return conexion;
     }
+    public void Close()throws SQLException {
+        conexion.close();
+    }   
 }
