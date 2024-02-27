@@ -42,15 +42,13 @@ public class Sql {
         }
     }
 
-    public void readAndPrintData(String table, String column, Connection con) {
+    public void readAndPrintData(String table, String columna, Connection con) {
         try {
-            String SQLQuery = "SELECT " + column + " FROM " + table;
+            String SQLQuery = "SELECT * FROM " +table;
             PreparedStatement pt = con.prepareStatement(SQLQuery);
             ResultSet rs = pt.executeQuery();
             while (rs.next()) {
-                String value = rs.getString(column);
-                System.out.println(value);
-
+                System.out.println("ID: " +rs.getString("id") + " " + columna + ": " +rs.getString(columna));
             }
         } catch (SQLException ex){
             System.out.println("Error en la adquisición de datos");

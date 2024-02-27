@@ -36,7 +36,7 @@ public class Main {
                     controlEscolar.insertData(con, car.getTable(),car.getColumna1(),nextInput1);                    
                     break;
                 case 2:
-                    controlEscolar.readAndPrintData(car.getTable(),car.getColumna1(),con);
+                    controlEscolar.readAndPrintData(car.getTable(),car.getColumna1(), con);
                     break;
                 case 3:
                     System.out.println("Ingrese el nombre de la carrera que quiere actualizar y la nueva en ese orden");
