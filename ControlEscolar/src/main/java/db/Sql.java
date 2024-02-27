@@ -8,6 +8,7 @@ import model.Carrera;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -41,22 +42,20 @@ public class Sql {
         }
     }
 
-    public void readData(String table, String columna, Connection con) {
+    public void readAndPrintData(String table, String column, Connection con) {
         try {
-            String query = "SELECT * FROM " + table;
-            PreparedStatement st = conexion.prepareStatement(query);
-            java.sql.ResultSet resultSet;
-            resultSet = st.executeQuery(query);
-            while (resultSet.next()) {
-                System.out.println("ID: " + resultSet.getString("id") + " "
-                + columna + " " + resultSet.getString(columna));
+            String SQLQuery = "SELECT " + column + " FROM " + table;
+            PreparedStatement pt = con.prepareStatement(SQLQuery);
+            ResultSet rs = pt.executeQuery();
+            while (rs.next()) {
+                String value = rs.getString(column);
+                System.out.println(value);
+
             }
         } catch (SQLException ex){
             System.out.println("Error en la adquisición de datos");
         }
     }
-
-
 
 
     public static void deleteData(String table, int id, Connection con){

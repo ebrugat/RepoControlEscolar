@@ -46,8 +46,8 @@ public class Main {
                         DbConnect dbConnect = new DbConnect();
                         Connection con = dbConnect.getConexion();
                         Carrera car = new Carrera();
-                        Sql controlEscolar = new Sql(car, con);
-                        controlEscolar.readData(car.getTable(),car.getColumna1(), con);
+                        Sql controlEscolar = new Sql(car, con);                      
+                        controlEscolar.readAndPrintData(car.getTable(),car.getColumna1(),con);
                         con.close();
                     }catch (ClassNotFoundException | SQLException e) {
                         e.printStackTrace();
