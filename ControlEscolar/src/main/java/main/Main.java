@@ -25,7 +25,7 @@ public class Main {
             in.nextLine();
             switch(inUsuario){
                 case 1:
-                    /*try{
+                    try{
                         DbConnect.loadDriver();
                         DbConnect dbConnect = new DbConnect();
                         Connection con = dbConnect.getConexion();
@@ -33,25 +33,25 @@ public class Main {
                         Sql controlEscolar = new Sql(car, con);
                         //Aquí sería preciso pedir al usuario a qué tabla acceder, como solo tenemos 1 aun no lo hacemos. También cabe destacar que, para tablas que tengan más de una columna hay que preguntarle al usuario qué columnas quiere modificar (en este caso solo hay nombre)
                         System.out.println("Ingrese el nombre de la carrera que desea ingresar");
-                        nextInput = in.nextline();
-                        //controlEscolar.insertData(nextInput,car.getTable(),car.getColumna1(),con);
+                        nextInput1 = in.nextLine();
+                        controlEscolar.insertData(con, car.getTable(),car.getColumna1(),nextInput1);
                         con.close();
                     }catch (ClassNotFoundException | SQLException e) {
                         e.printStackTrace();
-                    }*/
+                    }
                     break;
                 case 2:
-                    /*try{
+                    try{
                         DbConnect.loadDriver();
                         DbConnect dbConnect = new DbConnect();
                         Connection con = dbConnect.getConexion();
                         Carrera car = new Carrera();
                         Sql controlEscolar = new Sql(car, con);
-                        controlEscolar.showData(car.getTable(),con);
+                        controlEscolar.readData(car.getTable(),car.getColumna1(),con);
                         con.close();
                     }catch (ClassNotFoundException | SQLException e) {
                         e.printStackTrace();
-                    }*/
+                    }
                     break;
                 case 3:
                     try{
