@@ -8,10 +8,9 @@ import model.Carrera;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
+
 /**
  *
  * @author Mati
@@ -42,22 +41,19 @@ public class Sql {
         }
     }
 
-    public List<String> readData(String table, String column, Connection con) {
-        List<String> data = new ArrayList<>();
+    public void readData(String table, String columna, Connection con) {
         try {
-            String SQLQuery = "SELECT " + column + " FROM " + table;
-            PreparedStatement pt = con.prepareStatement(SQLQuery);
-            ResultSet rs = pt.executeQuery();
-            while (rs.next()) {
-                String value = rs.getString(column);
-                data.add(value);
+            String query = "SELECT * FROM " + table;
+            PreparedStatement st = conexion.prepareStatement(query);
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(query);
+            while (resultSet.next()) {
+                System.out.println("ID: " + resultSet.getString("id") + " "
+                + columna + " " + resultSet.getString(columna));
             }
-            rs.close();
-            pt.close();
-        } catch (SQLException e) {
-            System.err.println("Error leyendo los datos: " + e.getMessage());
+        } catch (SQLException ex){
+            System.out.println("Error en la adquisición de datos");
         }
-        return data;
     }
 
 
