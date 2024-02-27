@@ -42,23 +42,22 @@ public class Sql {
         }
     }
 
-    public List<String> readData(String table, String column, Connection con) {
-        List<String> data = new ArrayList<>();
+    public void readAndPrintData(String table, String column, Connection con) {
         try {
             String SQLQuery = "SELECT " + column + " FROM " + table;
             PreparedStatement pt = con.prepareStatement(SQLQuery);
             ResultSet rs = pt.executeQuery();
             while (rs.next()) {
                 String value = rs.getString(column);
-                data.add(value);
+                System.out.println(value);
             }
             rs.close();
             pt.close();
         } catch (SQLException e) {
             System.err.println("Error leyendo los datos: " + e.getMessage());
         }
-        return data;
     }
+
 
 
 
