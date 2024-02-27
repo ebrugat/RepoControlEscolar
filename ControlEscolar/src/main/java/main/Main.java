@@ -68,7 +68,24 @@ public class Main {
                     }catch (ClassNotFoundException | SQLException e) {
                         e.printStackTrace();
                     }
-            }
+                    break;
+                case 4:
+                    try{
+                        DbConnect.loadDriver();
+                        DbConnect dbConnect = new DbConnect();
+                        Connection con = dbConnect.getConexion();
+                        Carrera car = new Carrera();
+                        Sql controlEscolar = new Sql(car, con);
+                        System.out.println("Ingrese el 'id' de la fila que quiere borrar");
+                        nextIntInput = in.nextInt();
+                        in.nextLine();
+                        controlEscolar.deleteData(car.getTable(), nextIntInput,con);
+                        con.close();
+                    }catch (ClassNotFoundException | SQLException e) {
+                        e.printStackTrace();
+                    }
+                    break;                            
+                    }
         }while(inUsuario!=0);  
     }
 }
